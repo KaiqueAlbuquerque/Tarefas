@@ -11,10 +11,10 @@ import java.util.*;
 //Não precisa mais da Classe AcessoBD
 public class ConjuntoDAO
 {      
-   public boolean cadastraConjunto(Conjunto to)
+   public boolean cadastraConjunto(Conjunto to) 
    {
       boolean sucesso = false;
-      String sqlInsert = "insert into conjunto values (?,?,?,?,?,?) ";
+      String sqlInsert = "insert into conjunto (tamanho, salas, valor, observacao, situacao) values (?,?,?,?,?) ";
                  
       try
       (
@@ -22,20 +22,34 @@ public class ConjuntoDAO
          PreparedStatement stm = conn.prepareStatement(sqlInsert);
       )
       {
-    	 stm.setInt(1, to.getAndar());
-    	 stm.setDouble(2, to.getTamanho());
-    	 stm.setInt(3, to.getSalas());
-    	 stm.setDouble(4, to.getValor());
-    	 stm.setString(5,  to.getObservacao());
-    	 stm.setInt(6, to.getSituacao());
+    	 stm.setDouble(1, to.getTamanho());
+    	 stm.setInt(2, to.getSalas());
+    	 stm.setDouble(3, to.getValor());
+    	 stm.setString(4,  to.getObservacao());
+    	 stm.setInt(5, to.getSituacao());
     	 
-         stm.execute();         
-         sucesso = true;
-      }
-      catch (Exception e)
+         stm.execute();    
+         
+         String sql2 = "select last_insert_id()";
+		
+         try(PreparedStatement ps2 = conn.prepareStatement(sql2))
+         {	
+			ResultSet rs = ps2.executeQuery();
+			if(rs.next())
+			{
+				to.setAndar(rs.getInt(1));
+			}
+			sucesso = true;
+         }
+         catch (SQLException e)
+         {
+            e.printStackTrace();
+         }
+      }  
+      catch (SQLException e1) 
       {
-         e.printStackTrace();
-      }   
+         e1.getStackTrace();
+      }       
       return sucesso;   
    }
    
@@ -73,7 +87,7 @@ public class ConjuntoDAO
       }  
       catch (SQLException e1) 
       {
-         System.out.print(e1.getStackTrace());
+         e1.getStackTrace();
       }
       return c;
    }
@@ -113,7 +127,7 @@ public class ConjuntoDAO
       }
       catch (SQLException e1)
       {
-         System.out.print(e1.getStackTrace());
+        e1.getStackTrace();
       }  
       return listC;
    }
@@ -144,5 +158,27 @@ public class ConjuntoDAO
          e.printStackTrace();
       }
       return sucesso;
+   }
+   
+   public boolean deletarConjunto(int andar)
+   {
+	   String sqlDelete = "DELETE FROM conjunto WHERE andar = ?";
+	   boolean sucesso = false;
+	   try
+	      (
+	         Connection conn = ConnectionFactory.obtemConexao();
+	         PreparedStatement stm = conn.prepareStatement(sqlDelete);
+	      )
+	      {  
+	         stm.setInt(1, andar);
+	         
+	         stm.execute();
+	         sucesso = true;
+	      }
+	      catch (Exception e)
+	      {
+	         e.printStackTrace();
+	      }
+	      return sucesso;
    }
 }

@@ -32,5 +32,10 @@ public class ConjuntoService
    public boolean cadastraConjunto(Conjunto to)
    {
       return dao.cadastraConjunto(to);
-   }   
+   }  
+   
+   public boolean deletarConjunto(int andar)
+   {
+      return dao.deletarConjunto(andar);
+   }  
 }
