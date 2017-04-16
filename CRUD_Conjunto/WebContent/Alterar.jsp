@@ -6,23 +6,46 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+		<meta name= "viewport" content= "width=device-width initial-scale=1">
 		<title>Alterar Conjunto</title>
 	</head>
-	<body>
-	<a href="/CRUD_Conjunto/Index.html">Home</a> <a href="/CRUD_Conjunto/Alterar.html">Voltar</a>
-		<h2>Altere os dados do conjunto</h2>
-		
-		<%Conjunto conjunto = (Conjunto)request.getAttribute("conjunto"); %>
-		
-		<form action="Alterado.do" method="post">
-			<input type="text" name="andar" value = "<%=conjunto.getAndar() %>" style="display:none;">
-			Tamanho: <input type="text" name="tamanho" value = "<%=conjunto.getTamanho() %>"><br>
-			Salas: <input type="text" name="salas" value = "<%=conjunto.getSalas() %>"><br>
-			Valor: <input type="text" name="valor" value = "<%=conjunto.getValor() %>"><br>
-			Descrição: <textarea rows="5" name="descricao"><%=conjunto.getObservacao() %></textarea><br>
-			Situação: <input type="radio" name="situacao" value="Ativo" <%= (conjunto.getSituacao() == 1 ? "checked" : "") %> > Ativo
-					  <input type="radio" name="situacao" value="Desabilitado" <%= (conjunto.getSituacao() == 0 ? "checked" : "") %>> Desabilitado<br>
-						<input type="submit"> <button type="submit">enviar</button>
-		</form>		
+	<body>	
+		<div class="container col-xs-12 col-sm-7 col-md-6 col-lg-5">
+			<h2>Altere os dados do conjunto</h2>
+			
+			<%Conjunto conjunto = (Conjunto)request.getAttribute("conjunto"); %>
+			
+			<form action="Alterado.do" method="post">	
+				<input type="text" name="andar" value = "<%=conjunto.getAndar() %>" style="display:none;">
+				<div class="form-group">
+					<label for="tamanho">Tamanho m²:</label>
+					<input type="text" class="form-control" name="tamanho" placeholder="Tamanho m²" value = "<%=conjunto.getTamanho() %>">
+				</div>
+				<div class="form-group">
+					<label for="salas">Salas:</label>
+					<input type="text" class="form-control" name="salas" value = "<%=conjunto.getSalas() %>">
+				</div>
+				<div class="form-group">
+					<label for="valor">Valor:</label>
+					<input type="text" class="form-control" name="valor" value = "<%=conjunto.getValor() %>">
+				</div>
+				<div class="form-group">
+					<label for="descricao">Descrição:</label>
+					<textarea rows="5" class="form-control" name="descricao"><%=conjunto.getObservacao() %></textarea>
+				</div>
+				<div class="radio">
+					<b>Situação:</b>
+					<label>
+						<input type="radio" name="situacao" value="Ativo" <%= (conjunto.getSituacao() == 1 ? "checked" : "") %> > Ativo
+					</label>
+					<label>
+						<input type="radio" name="situacao" value="Desabilitado" <%= (conjunto.getSituacao() == 0 ? "checked" : "") %>> Desabilitado<br>
+					</label>
+				</div>
+			<a class="btn btn-default" href="/CRUD_Conjunto/Alterar.html" role="button">Voltar</a>
+			<button type="submit" class="btn btn-default">Enviar</button>	
+			</form>					
+		</div>
 	</body>
 </html>

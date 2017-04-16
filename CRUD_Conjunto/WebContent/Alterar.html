@@ -2,14 +2,21 @@
 	<html>
 		<head>
 			<meta charset="UTF-8">
+			<link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+			<meta name= "viewport" content= "width=device-width initial-scale=1">
 			<title>Alterar Conjuntos</title>
 		</head>
 		<body>
-		<a href="/CRUD_Conjunto/Index.html">Home</a>
-		<h3>Alteração de Conjunto</h3>
-		<form action="Alterar.do" method="post">
-			Informe o Andar que deseja Alterar: <input type="text" name="andar"><br>
-			<input type="submit">
-		</form>
+			<div class="container col-xs-12 col-sm-7 col-md-6 col-lg-5">	
+			<h3>Alteração de Conjunto</h3>
+				<form action="Alterar.do" method="post">
+					<div class="form-group">			 
+						<label for="andar">Informe o Andar que deseja Alterar:</label>
+			    		<input type="text" class="form-control" name="andar" id="andar" placeholder="Andar">
+			  		</div>					
+					<a class="btn btn-default" href="/CRUD_Conjunto/Index.html" role="button">Voltar</a>
+					<button type="submit" class="btn btn-default">Enviar</button>	
+				</form>
+			</div>
 		</body>
 	</html>

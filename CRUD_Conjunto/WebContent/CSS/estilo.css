@@ -1,0 +1,112 @@
+.container
+{
+	margin-top: 110px;
+}
+
+a
+{
+	color: #FFF;
+}
+
+#li-index
+{
+	font-size: 25px;
+	text-align: center;
+}
+
+.ul
+{
+	margin-top: -15px;
+}
+
+h1
+{
+	text-align: center;
+	font-family: comic-sans;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #FFF;
+    font-size: 55px;
+}
+
+@media(min-width:320px) 
+{
+    .ul
+	{
+		margin-top: -60px;
+	}
+	#li-index
+	{
+		font-size: 20px;
+		text-align: center;
+	}
+}
+
+@media(min-width:768px) 
+{
+    .ul
+	{
+		margin-top: -10px;
+	}
+	#li-index
+	{
+		font-size: 25px;
+		text-align: center;
+	}
+}
+
+@media(min-width:992px) 
+{
+	.row
+	{
+		margin-top: -20px;
+	}
+    .ul
+	{
+		margin-top: 30px;
+	}
+	#li-index
+	{
+		font-size: 25px;
+		text-align: center;
+	}
+}
+
+@media(min-width:1200px) 
+{
+	.row
+	{
+		margin-top: -70px;
+	}
+    .ul
+	{
+		margin-top: 45px;
+	}
+	#li-index
+	{
+		font-size: 30px;
+		text-align: center;
+	}
+}
+
+@media(min-width:1360px) 
+{
+	.row
+	{
+		margin-top: -20px;
+	}
+    .ul
+	{
+		margin-top: 45px;
+	}
+	#li-index
+	{
+		font-size: 30px;
+		text-align: center;
+	}
+}
+
+body
+{
+	background-color: black;
+}
