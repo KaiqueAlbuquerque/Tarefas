@@ -33,10 +33,16 @@ public class AlterarController extends HttpServlet
 		conjunto = cs.consultarConjunto(pAndar);
 			
 		//enviar para o jsp
-		request.setAttribute("conjunto", conjunto);
+		if(conjunto.getAndar() == 0)
+		{
+			request.setAttribute("conjunto", null);
+		}else
+		{
+			request.setAttribute("conjunto", conjunto);
+		}
 		
 		RequestDispatcher view =
-		request.getRequestDispatcher("Alterar.jsp");
+		request.getRequestDispatcher("Alteraracao.jsp");
 		view.forward(request, response);
 	}
 }

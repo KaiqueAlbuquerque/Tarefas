@@ -9,13 +9,14 @@
 <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="CSS/estilo.css">
 <meta name="viewport" content="width=device-width initial-scale=1">
-<title>Conjunto Alterado</title>
+<title>Conjunto Cadastrado</title>
 </head>
 <body>
 	<c:import url="Menu.jsp" />
 	<div class="conteudo">
-		<h2>Conjunto Alterado com Sucesso</h2>
-		<h3>Dados do Conjunto</h3>	
+		<h2>Conjunto Cadastrado com Sucesso</h2>
+		<h3>Dados do Conjunto Cadastrado</h3>
+	
 		<div class="panel panel-default">
 			<div class="panel-body">
 					<b>Andar:</b> ${conjunto.andar} <br> 
@@ -33,7 +34,7 @@
 						</c:if> 
 			</div>
 		</div>
-		<a class="btn btn-default" href="/CRUD_Conjunto/Alterar.jsp"
+		<a class="btn btn-default" href="/CRUD_Conjunto/Cadastrar.jsp"
 			role="button">Voltar</a>
 	</div>
 	<c:import url="Pos_Menu.jsp" />

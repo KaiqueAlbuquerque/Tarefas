@@ -1,42 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="model.Conjunto" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
-		<meta name= "viewport" content= "width=device-width initial-scale=1">
-		<title>Conjunto Cadastrado</title>
-	</head>
-	<body>
-		<div class = "container col-xs-12 col-sm-7 col-md-6 col-lg-5">
-			<h2>Conjunto Cadastrado com Sucesso</h2>
-			<h3>Dados do Conjunto Cadastrado</h3>
-			<%Conjunto conjunto = (Conjunto)request.getAttribute("conjunto"); %>
-			<div class="panel panel-default">
-  				<div class="panel-body">
-					<b>Andar:</b> <%=conjunto.getAndar() %><br>
-					<b>Tamanho:</b> <%=conjunto.getTamanho() %><br>
-					<b>Salas:</b> <%=conjunto.getSalas() %><br>
-					<b>Valor:</b> <%=conjunto.getValor() %><br>
-					<b>ObservaÃ§Ã£o:</b> <%=conjunto.getObservacao() %><br>
-					<b>SituaÃ§Ã£o:</b>
-					<%
-						if(conjunto.getSituacao() == 0)
-						{
-							out.println("Desabilitado");
-						}
-						else
-						{
-							out.println("Ativo");
-						}
-					;%>	
-				</div>
-			</div>	
-			<a class="btn btn-default" href="/CRUD_Conjunto/Index.html" role="button">Home</a>
-			<a class="btn btn-default" href="/CRUD_Conjunto/Cadastrar.html" role="button">Voltar</a>	
-		</div>	
-	</body>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="CSS/estilo.css">
+<meta name="viewport" content="width=device-width initial-scale=1">
+<title>Início</title>
+</head>
+<body>
+
+	<c:import url="Menu.jsp" />
+		<div class="conteudo">
+			<h3>Cadastrar Conjunto</h3>
+				<form action="Cadastrar.do" method="post">
+				 	<div class="form-group">			 
+				 		<label for="tamanho">Tamanho m²:</label>
+	    				<input type="text" class="form-control" name="tamanho" id="tamanho" placeholder="Tamanho m²">
+	  				</div>
+	  				<div class="form-group">			 
+				 		<label for="salas">Salas:</label>
+	    				<input type="text" class="form-control" name="salas" id="salas" placeholder="Salas">
+	  				</div>
+	  				<div class="form-group">			 
+				 		<label for="valor">Valor:</label>
+	    				<input type="text" class="form-control" name="valor" id="valor" placeholder="Valor">
+	  				</div>
+					<div class="form-group">			 
+				 		<label for="descricao">Descrição:</label>
+	    				<textarea rows="5" class="form-control" name="descricao" id="descricao" placeholder="Descrição"></textarea>
+	  				</div>				
+					<div class="radio">
+					<b>Situação:</b>
+					  	<label>
+					  	  <input type="radio" name="situacao" value="Ativo" checked>
+					  	  	Ativo
+					 	</label>
+					 	<label>
+					  	  <input type="radio" name="situacao" value="Desabilitado">
+					  	  	Inativo
+					 	</label>
+					</div>
+					<button type="submit" class="btn btn-default">Enviar</button>						
+				</form>
+			</div>
+	<c:import url="Pos_Menu.jsp" />
+</body>
 </html>

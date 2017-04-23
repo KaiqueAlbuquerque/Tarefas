@@ -1,41 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="model.Conjunto" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
-		<meta name= "viewport" content= "width=device-width initial-scale=1">
-		<title>Conjunto Deletado</title>
-	</head>
-	<body>	
-		<div class = "container col-xs-12 col-sm-7 col-md-6 col-lg-5">
-			<h2>Conjunto deletado com sucesso</h2>
-			<h3>Dados do Conjunto Excluído</h3>
-			<%Conjunto conjunto = (Conjunto)request.getAttribute("conjunto"); %>
-			<div class="panel panel-default">
-  				<div class="panel-body">
-					<b>Andar:</b> <%=conjunto.getAndar() %><br>
-					<b>Tamanho:</b> <%=conjunto.getTamanho() %><br>
-					<b>Salas:</b> <%=conjunto.getSalas() %><br>
-					<b>Valor:</b> <%=conjunto.getValor() %><br>
-					<b>Observação:</b> <%=conjunto.getObservacao() %><br>
-					<b>Situação:</b>
-					<%
-						if(conjunto.getSituacao() == 0)
-						{
-							out.println("Desabilitado");
-						}
-						else
-						{
-							out.println("Ativo");
-						}
-					;%>
-				</div>
-			</div>		
-			<a class="btn btn-default" href="/CRUD_Conjunto/Index.html" role="button">Home</a>	
-		</div>		
-	</body>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="CSS/estilo.css">
+<meta name="viewport" content="width=device-width initial-scale=1">
+<title>Excluir Conjuto</title>
+</head>
+<body>
+	<c:import url="Menu.jsp" />
+	<div class="conteudo">
+		<h3>Excluir Conjuto</h3>
+		<form action="ExcluirConfima.do" method="post">
+			<div class="form-group">
+				<label for="andar">Informe o Andar que deseja excluir:</label> <input
+					type="text" class="form-control" name="andar" id="andar"
+					placeholder="Andar">
+			</div>
+			<button type="submit" class="btn btn-default">Enviar</button>
+		</form>
+	</div>
+	<c:import url="Pos_Menu.jsp" />
+</body>
 </html>

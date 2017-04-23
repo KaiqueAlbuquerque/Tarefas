@@ -37,7 +37,7 @@ public class ExcluirController extends HttpServlet {
 		request.setAttribute("conjunto", conjunto);
 		
 		RequestDispatcher view =
-		request.getRequestDispatcher("Deletar.jsp");
+		request.getRequestDispatcher("Deletado.jsp");
 		view.forward(request, response);
 	}
 }

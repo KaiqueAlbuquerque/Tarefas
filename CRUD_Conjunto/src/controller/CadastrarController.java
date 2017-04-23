@@ -55,7 +55,7 @@ public class CadastrarController extends HttpServlet
 		request.setAttribute("conjunto", conjunto);
 		
 		RequestDispatcher view =
-		request.getRequestDispatcher("Cadastrar.jsp");
+		request.getRequestDispatcher("Cadastrado.jsp");
 		view.forward(request, response);
 	}
 }

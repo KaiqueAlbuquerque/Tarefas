@@ -23,8 +23,8 @@ public class ConnectionFactory
    public static Connection obtemConexao() throws SQLException
    {
       String user = "root";
-      String password = "87511520";
-
+   //   String password = "87511520";
+      String password = "1234567";
       return DriverManager.getConnection("jdbc:mysql://localhost/predio?user="+user+"&password="+password);
    }
 }
