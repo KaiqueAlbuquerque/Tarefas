@@ -5,10 +5,10 @@
 
 		<ul class="ul nav nav-pills nav-stacked">
 			<li id="li-index" role="presentation"><a href="Index.jsp">Inicio</a></li>
-			<li id="li-index" role="presentation"><a href="Cadastrar.jsp">Cadastrar</a></li>
-			<li id="li-index" role="presentation"><a href="Deletar.jsp">Excluir</a></li>
+			<li id="li-index" role="presentation"><a href="Conjunto?action=listar">Conjunto</a></li>
+	<!--  		<li id="li-index" role="presentation"><a href="Deletar.jsp">Excluir</a></li>
 			<li id="li-index" role="presentation"><a href="Alterar.jsp">Alterar</a></li>
-			<li id="li-index" role="presentation"><a href="Consultar.jsp">Consultar</a></li>
+			<li id="li-index" role="presentation"><a href="Consultar.jsp">Consultar</a></li> -->
 		</ul>
 </div>
 

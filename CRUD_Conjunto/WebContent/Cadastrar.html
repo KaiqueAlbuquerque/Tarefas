@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+			<meta name= "viewport" content= "width=device-width initial-scale=1">
+			<title>Cadastrar Conjuntos</title>
+		</head>
+		<body>	
+			<div class="container col-xs-12 col-sm-7 col-md-6 col-lg-5">
+			<h3>Cadastro de Conjunto</h3>
+				<form action="Cadastrar.do" method="post">
+				 	<div class="form-group">			 
+				 		<label for="tamanho">Tamanho m²:</label>
+	    				<input type="text" class="form-control" name="tamanho" id="tamanho" placeholder="Tamanho m²">
+	  				</div>
+	  				<div class="form-group">			 
+				 		<label for="salas">Salas:</label>
+	    				<input type="text" class="form-control" name="salas" id="salas" placeholder="Salas">
+	  				</div>
+	  				<div class="form-group">			 
+				 		<label for="valor">Valor:</label>
+	    				<input type="text" class="form-control" name="valor" id="valor" placeholder="Valor">
+	  				</div>
+					<div class="form-group">			 
+				 		<label for="descricao">Descrição:</label>
+	    				<textarea rows="5" class="form-control" name="descricao" id="descricao" placeholder="Descrição"></textarea>
+	  				</div>				
+					<div class="radio">
+					<b>Situação:</b>
+					  	<label>
+					  	  <input type="radio" name="situacao" value="Ativo" checked>
+					  	  	Ativo
+					 	</label>
+					 	<label>
+					  	  <input type="radio" name="situacao" value="Desabilitado">
+					  	  	Desabilitado
+					 	</label>
+					</div>
+					<a class="btn btn-default" href="/CRUD_Conjunto/Index.html" role="button">Voltar</a>
+					<button type="submit" class="btn btn-default">Enviar</button>						
+				</form>
+			</div>
+		</body>
+	</html>
