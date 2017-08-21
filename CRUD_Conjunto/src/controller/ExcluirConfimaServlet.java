@@ -12,38 +12,23 @@ import javax.servlet.http.HttpServletResponse;
 import model.Conjunto;
 import service.ConjuntoService;
 
-/**
- * Servlet implementation class ExcluirConfimaServlet
- */
 @WebServlet("/ExcluirConfima.do")
-public class ExcluirConfimaServlet extends HttpServlet {
+public class ExcluirConfimaServlet extends HttpServlet
+{
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ExcluirConfimaServlet() {
+	public ExcluirConfimaServlet()
+	{
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)	throws ServletException, IOException
+	{
 		int pAndar = Integer.parseInt(request.getParameter("andar"));
 
 		Conjunto conjunto = new Conjunto();
@@ -56,7 +41,8 @@ public class ExcluirConfimaServlet extends HttpServlet {
 		if(conjunto.getAndar() == 0)
 		{
 			request.setAttribute("conjunto", null);
-		}else
+		}
+		else
 		{
 			request.setAttribute("conjunto", conjunto);
 		}

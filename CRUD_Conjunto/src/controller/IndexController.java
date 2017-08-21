@@ -9,11 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Conjunto;
-import service.ConjuntoService;
+import command.FazerLogin;
 
-@WebServlet("/Deletar.do")
-public class ExcluirController extends HttpServlet
+@WebServlet("/Index.do")
+public class IndexController extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 	
@@ -24,20 +23,8 @@ public class ExcluirController extends HttpServlet
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{	
-		int pAndar = Integer.parseInt(request.getParameter("andar"));
+		FazerLogin login = new FazerLogin();
+		login.executa(request, response);
 		
-		Conjunto conjunto = new Conjunto();
-				
-		//instanciar o service
-		ConjuntoService cs = new ConjuntoService();
-		conjunto = cs.consultarConjunto(pAndar);
-		cs.deletarConjunto(pAndar);	
-		
-		//enviar para o jsp
-		request.setAttribute("conjunto", conjunto);
-		
-		RequestDispatcher view =
-		request.getRequestDispatcher("Deletado.jsp");
-		view.forward(request, response);
 	}
 }

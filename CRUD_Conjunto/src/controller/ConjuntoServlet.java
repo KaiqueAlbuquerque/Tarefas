@@ -17,40 +17,46 @@ import model.Conjunto;
 import service.ConjuntoService;
 
 @WebServlet("/Conjunto")
-public class ConjuntoServlet extends HttpServlet {
+public class ConjuntoServlet extends HttpServlet 
+{
 	private static final long serialVersionUID = 1L;
 
-	public ConjuntoServlet() {
+	public ConjuntoServlet()
+	{
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		ConjuntoService service = new ConjuntoService();
 		HttpSession session = request.getSession();
 		String action = request.getParameter("action");
 
-		switch (action) {
-		case "listar": {			
+		switch (action) 
+		{
+		case "listar": 
+		{		
 			if(session.getAttribute("conjuntos") == null)
-			{				
+			{							
 				List<Conjunto> conjuntos = service.consultarTodosConjuntos();
 				session.setAttribute("conjuntos", conjuntos);		
 			}			
 		}
 			break;
-		case "excluir": {
+		case "excluir":
+		{			
 			int pAndar = Integer.parseInt(request.getParameter("andar"));
 			service.deletarConjunto(pAndar);
 			
+			@SuppressWarnings("unchecked")
 			ArrayList<Conjunto> lista = (ArrayList<Conjunto>)session.getAttribute("conjuntos");
 			int pos = busca(pAndar, lista);
 			lista.remove(pos);
 			session.setAttribute("conjuntos", lista);				
 		}
 			break;		
-		case "visualizar": {
+		case "visualizar":
+		{
 			int pAndar = Integer.parseInt(request.getParameter("andar"));
 			Conjunto conjunto = service.consultarConjunto(pAndar);
 			request.setAttribute("conjunto", conjunto);
@@ -59,7 +65,8 @@ public class ConjuntoServlet extends HttpServlet {
 			view.forward(request, response);
 		}
 			break;
-		case "editar": {
+		case "editar":
+		{
 			int pAndar = Integer.parseInt(request.getParameter("andar"));
 			Conjunto conjunto = service.consultarConjunto(pAndar);
 			request.setAttribute("conjunto", conjunto);
@@ -74,11 +81,11 @@ public class ConjuntoServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)	throws ServletException, IOException 
+	{
 		String action = request.getParameter("action");
 		HttpSession session = request.getSession();		
+		@SuppressWarnings("unchecked")
 		ArrayList<Conjunto> lista = (ArrayList<Conjunto>)session.getAttribute("conjuntos");
 		
 		int pAndar = -1;
@@ -86,7 +93,8 @@ public class ConjuntoServlet extends HttpServlet {
 		try
 		{
 			pAndar = Integer.parseInt(request.getParameter("andar"));
-		}catch(Exception e)
+		}
+		catch(Exception e)
 		{			
 		}		
 		
@@ -112,7 +120,8 @@ public class ConjuntoServlet extends HttpServlet {
 		{	
 			cs.cadastraConjunto(conjunto);
 			lista.add(conjunto);			
-		}else
+		}
+		else
 		{
 			cs.alterarConjunto(conjunto);	
 			int pos = busca(conjunto.getAndar(), lista);
@@ -120,16 +129,19 @@ public class ConjuntoServlet extends HttpServlet {
 			lista.add(pos, conjunto);	   			
 		}			
 		
-		session.setAttribute("lista", lista);
+		session.setAttribute("conjuntos", lista);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("ListarConjunto.jsp");
 		dispatcher.forward(request, response);		
 	}
 	
-	public int busca(int andar, ArrayList<Conjunto> lista) {
+	public int busca(int andar, ArrayList<Conjunto> lista)
+	{
 		Conjunto to;
-		for(int i = 0; i < lista.size(); i++){
+		for(int i = 0; i < lista.size(); i++)
+		{
 			to = lista.get(i);
-			if(to.getAndar() == andar){
+			if(to.getAndar() == andar)
+			{
 				return i;
 			}
 		}

@@ -24,7 +24,6 @@ public class AlteradoController extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException 
 	{	
-		System.out.println(request.getParameter("andar"));
 		int pAndar = Integer.parseInt(request.getParameter("andar"));
 		double pTamanho = Double.parseDouble(request.getParameter("tamanho"));
    		int pSalas = Integer.parseInt(request.getParameter("salas"));

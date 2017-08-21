@@ -26,7 +26,7 @@ public class ConjuntoService
    
    public boolean alterarConjunto(Conjunto to)
    {
-      return dao.alterarConjunto(to);
+      return dao.alterarConjunto(to);	
    }   
      
    public boolean cadastraConjunto(Conjunto to)
