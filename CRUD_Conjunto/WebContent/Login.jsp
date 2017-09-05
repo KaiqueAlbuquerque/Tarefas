@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
 <head>
 	<meta charset="utf-8">
@@ -24,7 +24,7 @@
 			<div class="input-group col-md-4">
 				<div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 				</div>
-					<input type="email" name="username" id="username"class="form-control" maxlength="60" placeholder="E-mail" required/>
+					<input type="text" name="username" id="username"class="form-control" maxlength="60" placeholder="E-mail" required/>
 			</div>
 		</div>
 	
@@ -43,7 +43,7 @@
 </form>
 </div>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="JS/jquery.min.js"></script>
+<script src="JS/bootstrap.min.js"></script>
 </body>
 </html>
